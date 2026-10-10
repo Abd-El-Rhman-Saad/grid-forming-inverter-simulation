@@ -36,7 +36,7 @@ The structure imitates a synchronous generator and does not need a PLL in grid-f
 | Output filter | Third-order LCL |
 
 ## ⚙️ Simulation Results
-* **Power tracking:** the active power output settles at **10 kW** with zero steady-state error and a well-damped transient (the droop loop adjusts the internal frequency).
+* **Power tracking:** the mean active power settles at **20 kW** (equal to P\*) after about 1 s, with a peak of about 21.5 kW (≈ 7.5% overshoot) and no visible steady-state error. In steady state the inverter frequency equals the grid frequency, so the droop law returns P = P\*.
 * **Voltage quality:** the LCL filter attenuates the 5 kHz switching harmonics, giving a clean sinusoidal output voltage under the simulated load changes.
 
 | Active Power Output | Zoomed Waveforms |
@@ -54,4 +54,3 @@ Open `Simulation/Grid_Forming.slx` in MATLAB/Simulink (Simscape Electrical requi
 ## 👨‍💻 Author
 **Abd El-Rhman Muhammad Saad** — Electrical Power and Machines Engineering, Alexandria University.
 [LinkedIn](https://linkedin.com/in/Abd-El-Rhman-Saad) · [GitHub](https://github.com/Abd-El-Rhman-Saad)
-
