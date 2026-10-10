@@ -70,7 +70,7 @@
 	\newpage
 	
 	\begin{abstract}
-		This report presents the comprehensive design, mathematical modeling, and MATLAB/Simulink simulation of a Grid-Forming Voltage Source Inverter (GFM-VSI). Unlike traditional grid-following inverters that inject current into a stiff grid, grid-forming inverters act as controlled AC voltage sources that establish the local grid voltage and frequency. The implemented system employs a Droop Control strategy ($P-\omega$ and $Q-V$) to autonomously share active and reactive power without relying on external communication. Furthermore, a cascaded multi-loop control architecture operating in the synchronous reference frame ($dq0$) is implemented to track the generated voltage reference. In the simulation, the inverter forms a stable AC voltage and its mean active power settles at 10 kW within about one second.
+		This report presents the comprehensive design, mathematical modeling, and MATLAB/Simulink simulation of a Grid-Forming Voltage Source Inverter (GFM-VSI). Unlike traditional grid-following inverters that inject current into a stiff grid, grid-forming inverters act as controlled AC voltage sources that establish the local grid voltage and frequency. The implemented system employs a Droop Control strategy ($P-\omega$ and $Q-V$) to autonomously share active and reactive power without relying on external communication. Furthermore, a cascaded multi-loop control architecture operating in the synchronous reference frame ($dq0$) is implemented to track the generated voltage reference. In the simulation, the inverter forms a stable AC voltage and its mean active power settles at 20 kW, equal to the reference $P^*$, within about one second.
 	\end{abstract}
 	
 	\newpage
@@ -147,7 +147,7 @@
 	\newpage
 	\subsection{Cascaded Voltage and Current Loops}
 	To ensure that the inverter accurately synthesizes the $V_{ref}$ calculated by the droop controller, a cascaded multi-loop architecture is implemented in the $dq0$ synchronous reference frame (Figure 3).
-
+	
 	
 	\subsubsection{Inner Current Loop and Decoupling}
 	The inner loop ($P = 100, I = 20000$) regulates the inverter output currents. Due to the rotating reference frame, a physical cross-coupling exists between the $d$ and $q$ axes. To guarantee independent control and prevent instability, \textbf{Feedforward Decoupling Terms} ($\pm \omega L \cdot i$) are added to the PI controller outputs. 
@@ -175,7 +175,7 @@
 	The performance of the Grid-Forming Inverter was evaluated under steady-state and dynamic load sharing conditions.
 	
 	\subsection{Power Tracking and Droop Response}
-	Figure 5 shows the response of the mean active power output. After initialization the power rises to a peak of about 10.8 kW (an overshoot of roughly 8\%) at $t \approx 0.5$ s, then settles at 10 kW by about $t \approx 1$ s with no visible steady-state error. During this transient the droop law of Eq. (2) adjusts the internal frequency. 
+	Figure 5 shows the response of the mean active power output. After initialization the power rises to a peak of about 21.5 kW (an overshoot of about 7.5\%) at $t \approx 0.5$ s, then settles at 20 kW, equal to the reference $P^*$, by about $t \approx 1$ s with no visible steady-state error. In steady state the inverter frequency equals the grid frequency, so the droop law of Eq. (2) returns $P = P^*$; during the transient the droop adjusts the internal frequency. 
 	
 	\begin{figure}[H]
 		\centering
